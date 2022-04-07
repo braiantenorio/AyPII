@@ -1,4 +1,4 @@
-package lista;
+package Lista;
 public class Lista<E> {
 
 	private E lista[];
@@ -18,14 +18,14 @@ public class Lista<E> {
 		lista[indice++] = e;
 	}
 
-	/* Agrega un elemento a la lista en la posición p */
+	/* Agrega un elemento a la lista en la posiciï¿½n p */
 	public void add(int p, E e) throws IndexOutOfBoundsException {
 	}
 
 	/* Retorna el elemento que se encuentra en p */
 	public E get(int p) throws IndexOutOfBoundsException {		
 		if (p < 0 || p >= indice)
-			throw new IndexOutOfBoundsException("Indice inválido: " + p);
+			throw new IndexOutOfBoundsException("Indice invï¿½lido: " + p);
 		return lista[p];
 	}
 
@@ -41,7 +41,7 @@ public class Lista<E> {
 		return remove(i);
 	}
 
-	/* Remueve el elemento que se encuentra en la posición p */
+	/* Remueve el elemento que se encuentra en la posiciï¿½n p */
 	public E remove(int p) throws IndexOutOfBoundsException {
 		return null;
 	}
