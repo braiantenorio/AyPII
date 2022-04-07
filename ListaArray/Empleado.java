@@ -1,4 +1,4 @@
-package Lista;
+package ListaArray;
 public class Empleado {
 
 	private int legajo;

@@ -1,4 +1,4 @@
-package Lista;
+package ListaArray;
 
 public class PruebaLista {
 
