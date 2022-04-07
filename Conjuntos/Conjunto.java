@@ -1,4 +1,4 @@
-package Com;
+package Conjuntos;
 
 import java.util.Arrays;
 
