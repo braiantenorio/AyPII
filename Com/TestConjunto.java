@@ -21,8 +21,12 @@ public class TestConjunto {
 		
 		c1.aStingConjunto();
 		c2.aStingConjunto();
-		//c1.esIgualA(c2);
 		c1.insertarElemento(18);
+		Conjunto c3;
+		asdasd
+		
+
+
 		
 	}
 
