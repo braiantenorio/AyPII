@@ -11,8 +11,6 @@ public class Conjunto {
 		Arrays.fill(this.a, Boolean.FALSE);
 	}
 	
-	
-	
 
 	public boolean[] getA() {
 		return a;
