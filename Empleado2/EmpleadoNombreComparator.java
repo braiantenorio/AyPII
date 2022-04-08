@@ -1,4 +1,4 @@
-package empleado;
+package Empleado2;
 import java.util.Comparator;
 
 

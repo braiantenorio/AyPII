@@ -1,10 +1,9 @@
-package lista;
+package ClonLista;
 
 public class PruebaLista {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	
 		SinglyLinkedList<Empleado> lista2 = new SinglyLinkedList<Empleado>();				
 		
 		lista2.addFirst(new Empleado(10, "Juan"));

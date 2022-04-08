@@ -1,4 +1,4 @@
-package figura;
+package ClonFigura;
 
 public class Punto implements Cloneable {
 	private int x;

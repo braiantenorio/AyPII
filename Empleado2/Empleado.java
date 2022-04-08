@@ -1,4 +1,4 @@
-package empleado;
+package Empleado2;
 public class Empleado implements Comparable<Empleado> {
 
 	private int legajo;

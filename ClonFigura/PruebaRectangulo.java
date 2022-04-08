@@ -1,4 +1,4 @@
-package figura;
+package ClonFigura;
 
 
 public class PruebaRectangulo {
@@ -8,7 +8,7 @@ public class PruebaRectangulo {
 		Rectangulo rect=new Rectangulo(new Punto(2, 3), 4, 5);
         Rectangulo copia=(Rectangulo)rect.clone();
 		
-        System.out.println("rectángulo "+ rect);
+        System.out.println("rectï¿½ngulo "+ rect);
         System.out.println("copia "+ copia);	
         
         if (rect.getOrigen() == copia.getOrigen())
