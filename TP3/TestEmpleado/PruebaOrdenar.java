@@ -1,8 +1,8 @@
-package test;
+package TestEmpleado;
 import java.util.Arrays;
 
-import Empleado2.Empleado;
-import Empleado2.EmpleadoNombreComparator;
+import Empleado.Empleado;
+import Empleado.EmpleadoNombreComparator;
 
 public class PruebaOrdenar {
 

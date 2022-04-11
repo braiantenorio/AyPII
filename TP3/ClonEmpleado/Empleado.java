@@ -1,4 +1,4 @@
-package empleado;
+package ClonEmpleado;
 public class Empleado implements Cloneable {
 
 	private int legajo;

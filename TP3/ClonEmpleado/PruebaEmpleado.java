@@ -1,4 +1,4 @@
-package empleado;
+package ClonEmpleado;
 
 public class PruebaEmpleado {
 
