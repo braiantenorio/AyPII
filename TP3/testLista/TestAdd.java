@@ -1,6 +1,6 @@
-package ListaArray;
+package testLista;
 
-import ListaArray.Lista;
+import listaArray.Lista;
 
 public class TestAdd {
 

@@ -1,4 +1,4 @@
-package ListaArray;
+package listaArray;
 public class Lista<E> {
 
 	private E lista[];
@@ -20,11 +20,7 @@ public class Lista<E> {
 
 	/* Agrega un elemento a la lista en la posici�n p */
 	public void add(int p, E e) throws IndexOutOfBoundsException {
-		if (p > MAXELEM)
-			throw new IndexOutOfBoundsException("Indice invalido")
-		lista[p]= e; 
 	}
-
 
 	/* Retorna el elemento que se encuentra en p */
 	public E get(int p) throws IndexOutOfBoundsException {		

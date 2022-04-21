@@ -1,4 +1,4 @@
-package ListaArray;
+package listaArray;
 
 public class PruebaLista {
 
@@ -21,4 +21,4 @@ public class PruebaLista {
 
 		System.out.println(lista);
 	}
-}
+}    
