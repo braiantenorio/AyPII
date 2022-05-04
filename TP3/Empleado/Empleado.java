@@ -32,6 +32,7 @@ public class Empleado implements Comparable<Empleado> {
 		return nombre;
 	}
 
+	
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
