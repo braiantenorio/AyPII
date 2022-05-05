@@ -1,4 +1,4 @@
-package empleado;
+package net.datastructures;
 
 public abstract class Empleado {
 	

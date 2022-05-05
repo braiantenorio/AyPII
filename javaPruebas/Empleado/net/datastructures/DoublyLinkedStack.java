@@ -41,5 +41,12 @@ public class DoublyLinkedStack<E>  implements Stack<E> {
     }
 
 
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        return list.toString();
+    }
+
+
     
 }

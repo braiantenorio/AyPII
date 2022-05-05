@@ -1,4 +1,4 @@
-package net.datastructures;
+package empleado;
 
 /**
  * DoublyLinkedStack

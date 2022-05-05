@@ -1,4 +1,4 @@
-package empleado;
+package datastructures;
 
 public abstract class Empleado {
 	
