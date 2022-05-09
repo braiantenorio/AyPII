@@ -17,6 +17,7 @@ public class ArrayCircularDeque<E> implements Deque<E>{
         this(CAPACITY);
     }
 
+    @SuppressWarnings({"unchecked"})
     public ArrayCircularDeque(int capacity){
         data= (E[]) new Object[capacity]; // safe cast;
     }
@@ -24,6 +25,11 @@ public class ArrayCircularDeque<E> implements Deque<E>{
 
     @Override
     public void addFirst(E e) throws IllegalStateException {
+        if (sz== data.length) throw new IllegalStateException("Queue is full");
+        f=(f-1+data.length) % data.length;
+        data[f]= e;
+        sz++;
+
        
     }
 
@@ -49,23 +55,68 @@ public class ArrayCircularDeque<E> implements Deque<E>{
 
     @Override
     public E last() {
-        return null;
+        int avail= (f+sz)%data.length;
+        return data[avail-1];
     }
 
     @Override
     public E removeFirst() {
-        return null;
+        if (isEmpty()) return null;
+        E answer = data[f];
+        data[f] = null;                             // dereference to help garbage collection
+        f = (f + 1) % data.length;
+        sz--;
+        return answer;
     }
 
     @Override
     public E removeLast() {
-        return null;
+        if (isEmpty()) return null;
+        int avail =(f+sz) % data.length;
+        E answer = data[avail-1];
+        data[avail-1]=null;
+        sz--;
+        return answer;
     }
 
     @Override
     public int size() {
         return sz;
     }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + sz;
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        ArrayCircularDeque other = (ArrayCircularDeque) obj;
+        if (sz != other.sz)
+            return false;
+            if (sz != other.sz)
+            return false;
+          int k=f;
+          int h=other.f;
+          for (int j=0; j<sz; j++)
+            if (other.data[h]!=data[k]){
+              h=(h+1) % data.length;
+              k=(k+1) % data.length;
+              return false;
+            }
+            return true;
+        }
+
+    
     
 
     

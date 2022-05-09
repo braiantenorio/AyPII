@@ -7,7 +7,6 @@ public class ArrayCircularQueue<E> extends ArrayQueue<E>  implements CircularQue
 
     @Override
     public void rotate() {
-        // TODO Auto-generated method stub
         if (isEmpty())
         return;
         E other=dequeue();
