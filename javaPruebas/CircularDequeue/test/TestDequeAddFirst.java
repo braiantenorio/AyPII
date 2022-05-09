@@ -13,11 +13,11 @@ public class TestDequeAddFirst {
 	private Deque<String> dq1 = new ArrayCircularDeque<String>(6);
 	private Deque<String> dq2 = new ArrayCircularDeque<String>(6);
 
-	// deque vacía
+	// deque vacï¿½a
 	@Test
 	public void testDeque1() {
 		dq1.addLast("Juan");
-
+			
 		dq2.addFirst("Juan");
 		assertEquals(dq1, dq2);
 	}

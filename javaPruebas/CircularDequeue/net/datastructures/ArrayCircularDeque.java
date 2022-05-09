@@ -23,6 +23,11 @@ public class ArrayCircularDeque<E> implements Deque<E>{
     }
 
 
+    
+    /** 
+     * @param e
+     * @throws IllegalStateException
+     */
     @Override
     public void addFirst(E e) throws IllegalStateException {
         if (sz== data.length) throw new IllegalStateException("Queue is full");
@@ -33,6 +38,11 @@ public class ArrayCircularDeque<E> implements Deque<E>{
        
     }
 
+    
+    /** 
+     * @param e
+     * @throws IllegalStateException
+     */
     @Override
     public void addLast(E e) throws IllegalStateException{
         if (sz== data.length) throw new IllegalStateException("Queue is full");
@@ -42,23 +52,40 @@ public class ArrayCircularDeque<E> implements Deque<E>{
         
     }
 
+    
+    
+    /** 
+     * @return E
+     */
     @Override
     public E first() {
         if( isEmpty()) return null;
         return data[f];
     }
 
+    
+    /** 
+     * @return boolean
+     */
     @Override
     public boolean isEmpty() {
         return (sz == 0);
     }
 
+    
+    /** 
+     * @return E
+     */
     @Override
     public E last() {
         int avail= (f+sz)%data.length;
         return data[avail-1];
     }
 
+    
+    /** 
+     * @return E
+     */
     @Override
     public E removeFirst() {
         if (isEmpty()) return null;
@@ -69,6 +96,10 @@ public class ArrayCircularDeque<E> implements Deque<E>{
         return answer;
     }
 
+    
+    /** 
+     * @return E
+     */
     @Override
     public E removeLast() {
         if (isEmpty()) return null;
@@ -79,11 +110,19 @@ public class ArrayCircularDeque<E> implements Deque<E>{
         return answer;
     }
 
+    
+    /** 
+     * @return int
+     */
     @Override
     public int size() {
         return sz;
     }
 
+    
+    /** 
+     * @return int
+     */
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -92,6 +131,11 @@ public class ArrayCircularDeque<E> implements Deque<E>{
         return result;
     }
 
+    
+    /** 
+     * @param obj
+     * @return boolean
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
