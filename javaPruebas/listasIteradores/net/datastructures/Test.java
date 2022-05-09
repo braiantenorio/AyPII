@@ -27,7 +27,8 @@ public class Test {
         
 
         }
-
+        //get element
+        System.out.println(lista.first().getElement());
     }
         
 }
