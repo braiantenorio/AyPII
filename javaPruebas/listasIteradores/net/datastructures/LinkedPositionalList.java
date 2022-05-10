@@ -259,7 +259,11 @@ public class LinkedPositionalList<E> implements PositionalList<E> {
    */
   @Override
   public Position<E> addLast(E e) {
-    return addBetween(e, trailer.getPrev(), trailer);     // just before the trailer
+    if (isEmpty())
+      return addFirst(e);
+    return addAfter(last(), e);
+
+    //return addBetween(e, trailer.getPrev(), trailer);     // just before the trailer
   }
 
   /**
@@ -271,10 +275,14 @@ public class LinkedPositionalList<E> implements PositionalList<E> {
    * @throws IllegalArgumentException if p is not a valid position for this list
    */
   @Override
-  public Position<E> addBefore(Position<E> p, E e)
-                                throws IllegalArgumentException {
+  public Position<E> addBefore(Position<E> p, E e) throws IllegalArgumentException {
+    if (p==first())
+      return addFirst(e);
+    return addAfter(before(p), e);
+    /*
     Node<E> node = validate(p);
     return addBetween(e, node.getPrev(), node);
+  */
   }
 
   /**
