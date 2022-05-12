@@ -31,6 +31,10 @@ public class test {
         for (Position<String> nodo : pos)
             System.out.print(" " + nodo.getElement());
 
+        System.out.println();
+        Iterable<Position<String>> posi= t.inorder();
+        for (Position<String> node: posi)
+        System.out.print(" "+ node.getElement());
     }
-    
+
 }
