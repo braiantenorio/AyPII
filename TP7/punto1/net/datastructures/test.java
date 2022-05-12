@@ -26,15 +26,33 @@ public class test {
         t.addRight(w, "4");
         t.addRight(u, "6");
 
-        Iterable<Position<String>> pos = t.postorder();
-
-        for (Position<String> nodo : pos)
-            System.out.print(" " + nodo.getElement());
+        System.out.print("\nNiveles: ");
+        for (Position<String> pos : t.breadthfirst())
+            System.out.print(pos.getElement());
 
         System.out.println();
-        Iterable<Position<String>> posi= t.inorder();
-        for (Position<String> node: posi)
-        System.out.print(" "+ node.getElement());
-    }
+    
+    //Iterable<Position<String>> pos = t.postorder();
+
+        for (Position<String> pos : t.postorder())
+            System.out.print(" " + pos.getElement());
+
+        System.out.println();
+
+   // Iterable<Position<String>> posi= t.inorder();
+        for (Position<String> pos: t.postorder() )
+            System.out.print(" "+ pos.getElement());
+
+
+    for (Position<String> pos: t.children(p))
+        System.out.print(pos.getElement()+ " ");
+    
+        System.out.println();
+    System.out.println(t.height(p));
+    System.out.println(t.sibling(q).getElement());
+    System.out.println(t.isRoot(p));
+    System.out.println(t.depth(p));
+
+        }
 
 }
