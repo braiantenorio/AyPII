@@ -144,4 +144,10 @@ public interface PositionalList<E> extends Iterable<E> {
    * @return iterable collection of the list's positions
    */
   Iterable<Position<E>> positions();
+
+
+  int indexOf(Position<E> p);
+
+  Position<E> findPosition(E e);
+
 }
