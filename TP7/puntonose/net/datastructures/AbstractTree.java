@@ -198,10 +198,10 @@ public List<Position<E>> searchAll(E e){
  */
 public boolean duplicate(){/*
   for(Position<E> pos: postorder())
-    for(E ad : search(pos.getElement())
-
-
-*/
+    List<Position<E>> list =search(pos.getElement())
+    if (list.size>2)
+    return true
+    */
   int i;
   for(Position<E> pos : postorder()){
     i=0;
