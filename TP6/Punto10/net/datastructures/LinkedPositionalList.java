@@ -339,6 +339,7 @@ public class LinkedPositionalList<E> implements PositionalList<E> {
       return -1;
     if (p == null)
       return -1;
+
     int index = 0;
     Iterator<E> pos = iterator();
     while (pos.next() != p.getElement())
@@ -350,7 +351,7 @@ public class LinkedPositionalList<E> implements PositionalList<E> {
   public Position<E> findPosition(E e) {
     Iterable<Position<E>> pos = positions();
     for (Position<E> node : pos)
-      if (node.getElement() == e)
+      if (node.getElement().equals(e))
         return node;
     return null;
   }
