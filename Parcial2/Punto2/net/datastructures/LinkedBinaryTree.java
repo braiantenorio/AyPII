@@ -342,7 +342,10 @@ public boolean isSubtree(LinkedBinaryTree<E> t) {
   }
   System.out.println(list1);
 
-  i = 0;
+  if (list.isSubList(list1))
+    return false;
+  
+    i = 0;
   for (Position<E> pos : this.postorder()) {
     list2.add(i, pos.getElement());
     i++;
@@ -356,7 +359,7 @@ public boolean isSubtree(LinkedBinaryTree<E> t) {
   }
   System.out.println(list3);
 
-  if (list.isSubList(list1) || list2.isSubList(list3))
+  if (list2.isSubList(list3))
     return true;
 
   return false;

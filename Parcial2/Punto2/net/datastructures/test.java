@@ -1,6 +1,6 @@
 package net.datastructures;
 
-public class test {
+public class Test {
     static LinkedBinaryTree<String> t = new LinkedBinaryTree<>();
     static LinkedBinaryTree<String> sub = new LinkedBinaryTree<>();
 

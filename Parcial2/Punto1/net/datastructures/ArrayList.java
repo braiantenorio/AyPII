@@ -160,6 +160,8 @@ public class ArrayList<E> implements List<E> {
  * 
  */
 public boolean isSubList(List<E> l) {
+  if(l.size()>=this.size)
+    return false;
   if (l.isEmpty())
     return true;
   if (l.size() == 1) {
