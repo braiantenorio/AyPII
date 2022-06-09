@@ -174,7 +174,7 @@ public boolean isSubList(List<E> l) {
     if (l.get(0).equals(this.get(i))) {
       i++;
       for (int h = 1; h < l.size(); h++) {
-        if (l.get(h) != this.get(i))
+        if (!l.get(h).equals(this.get(i)))
           return false;
         i++;
       }
