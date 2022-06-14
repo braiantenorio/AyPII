@@ -90,5 +90,15 @@ public class TestSubList {
         lista2.add(1, 1);
         assertFalse(lista1.isSubList(lista2));
     }    
+
+    @Test
+    public void test8() {
+        lista2 = new ArrayList<Integer>();
+        lista2.add(0, 1);
+        lista2.add(1, 1);
+        lista2.add(1, 1);
+
+        assertFalse(lista1.isSubList(lista2));
+    }    
     
 }
