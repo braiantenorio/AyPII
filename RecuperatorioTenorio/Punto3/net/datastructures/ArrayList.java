@@ -142,6 +142,13 @@ public class ArrayList<E> implements List<E> {
     data = temp;                               // start using the new array
   }
 
+  public boolean contains(E e){
+    for(E i : data)
+      if (i==e)
+        return true;
+
+    return false;
+  }
   //---------------- nested ArrayIterator class ----------------
   /**
    * A (nonstatic) inner class. Note well that each instance contains an implicit

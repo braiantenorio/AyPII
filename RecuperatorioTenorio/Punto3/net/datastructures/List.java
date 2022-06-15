@@ -84,4 +84,13 @@ public interface List<E> extends Iterable<E> {
    * @return iterator of the list's elements
    */
   Iterator<E> iterator();
+
+  /*
+   * 
+   * Dice si el elemento esta en la lista
+   * 
+   * 
+   * 
+   */
+  public boolean contains(E e);
 }

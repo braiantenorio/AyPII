@@ -24,7 +24,8 @@ public class Test {
                 l = new ArrayList<String>();
                 m.put(v.getCodigoOrigen(), l);
             }
-            l.add(l.size(), v.getCodigoDestino());
+            if(!l.contains(v.getCodigoDestino()))
+                l.add(l.size(), v.getCodigoDestino());
         }
 
         for (Entry<String, List<String>> e : m.entrySet())
