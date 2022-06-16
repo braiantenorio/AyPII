@@ -26,16 +26,8 @@ public class Vuelo {
         return codigoOrigen;
     }
 
-    public void setCodigoOrigen(String codigoOrigen) {
-        this.codigoOrigen = codigoOrigen;
-    }
-
     public String getCodigoDestino() {
         return codigoDestino;
-    }
-
-    public void setCodigoDestino(String codigoDestino) {
-        this.codigoDestino = codigoDestino;
     }
 
     public double getPrecio() {

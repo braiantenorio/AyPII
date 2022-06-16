@@ -154,7 +154,7 @@ public class ArrayList<E> implements List<E> {
     List<Integer> l = new ArrayList<Integer>();
     int j = 0;
     for (int i = 0; i < size(); i++)
-      if (get(i) == e)
+      if (get(i).equals(e))
         l.add(j++, i);
     return l;
 
