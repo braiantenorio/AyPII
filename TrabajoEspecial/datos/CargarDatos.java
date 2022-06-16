@@ -6,15 +6,19 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import net.datastructures.Graph;
+import net.datastructures.TreeMap;
 import net.datastructures.Vertex;
 import net.datastructures.AdjacencyMapGraph;
 
 public class CargarDatos {
+	private static TreeMap<String, Vertex<Usuario>> usuarios;
+	private static Graph<Usuario, Integer> g;
 
 	public static Graph<Usuario, Integer> cargarUsuarios(String fileName) throws FileNotFoundException {
 		Scanner read;
 
-		Graph<Usuario, Integer> usuarios = new AdjacencyMapGraph<>(false);
+		usuarios = new TreeMap<String, Vertex<Usuario>>();
+		g = new AdjacencyMapGraph<>(false);
 
 		read = new Scanner(new File(fileName));
 		read.useDelimiter("\\s*;\\s*");
@@ -27,16 +31,13 @@ public class CargarDatos {
 			genero = read.next();
 			ciudadAct = read.next();
 
-			usuarios.insertVertex(new Usuario(codigo, nombre, edad, genero, ciudadAct));
+			usuarios.put(codigo, g.insertVertex(new Usuario(codigo, nombre, edad, genero, ciudadAct)));
 		}
 		read.close();
-
-		return usuarios;
-
-
+		return g;
 
 	}
-	public static Graph<Usuario, Integer> cargarRelaciones(String fileName, Graph<Usuario,Integer> g) throws FileNotFoundException {
+	public static Graph<Usuario, Integer> crearRelaciones(String fileName, Graph<Usuario, Integer> g) throws FileNotFoundException {
 		Scanner read;
 
 		read = new Scanner(new File(fileName));
@@ -46,26 +47,12 @@ public class CargarDatos {
 		while (read.hasNext()) {
             usr1 = read.next();
 			usr2 = read.next();
-            Vertex<Usuario> edg1 = null;
-            Vertex<Usuario> edg2= null;
-            for (Vertex<Usuario> user : g.vertices()) {
-                if (user.getElement().getCodigo().equals(usr1))
-                    edg1=user;
-                    
-                if (user.getElement().getCodigo().equals(usr2))
-                    edg2=user;
-                
-                if(!(edg1==null) && !(edg2==null))    
-                    break;
-            }
-            g.insertEdge(edg1, edg2, 1);
-          
+			g.insertEdge(usuarios.get(usr1), usuarios.get(usr2),1);
 		}
 		read.close();
-
 		return g;
-
 	}
+	
 
 
 }
