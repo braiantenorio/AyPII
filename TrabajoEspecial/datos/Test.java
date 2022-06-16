@@ -7,7 +7,7 @@ import net.datastructures.Vertex;
 
 public class Test {
     public static void main(String[] args) throws FileNotFoundException {
-        Graph<Usuario, Integer> g = CargarDatos.cargarUsuarios("users.txt");
+        Graph<Usuario, Integer> g = CargarDatos.cargarUsuarios(CargarParametros.getArchivoUsuario());
         g = CargarDatos.crearRelaciones("relations.txt", g);
 
         for (Vertex<Usuario> user : g.vertices()) {
