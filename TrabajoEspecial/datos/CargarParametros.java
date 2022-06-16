@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+/*no funciona bien */
 public class CargarParametros {
 
 	private static String archivoUsuario;
