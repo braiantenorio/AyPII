@@ -15,23 +15,28 @@ public class CargarRelaciones {
 		read = new Scanner(new File(fileName));
 		read.useDelimiter("\\s*;\\s*");
 		String usr1, usr2;
-        Vertex<Usuario> edg1= null;
-        Vertex<Usuario> edg2 = null;
+       /*  Vertex<Usuario> edg1;
+        Vertex<Usuario> edg2;*/
 
 
 		while (read.hasNext()) {
             usr1 = read.next();
 			usr2 = read.next();
+            Vertex<Usuario> edg1 = null;
+            Vertex<Usuario> edg2= null;
             for (Vertex<Usuario> user : g.vertices()) {
-                if (user.getElement().getCodigo()==usr1)
+                if (user.getElement().getCodigo().equals(usr1)){
                     edg1=user;
-                if (user.getElement().getCodigo()==usr2)
-                    edg2=user;
-                /* 
-                if(!edg1.equals(null) && !edg2.equals(null))    
-                    break;*/
+                    //System.out.println(user.getElement().getCodigo() + " "+ usr1);
+                }
+                if (user.getElement().getCodigo().equals(usr2))
+                edg2=user;
+                
+                if(!(edg1==null) && !(edg2==null))    
+                    break;
             }
-            g.insertEdge(edg1, edg2, 1);
+                g.insertEdge(edg1, edg2, 1);
+          
 		}
 		read.close();
 
