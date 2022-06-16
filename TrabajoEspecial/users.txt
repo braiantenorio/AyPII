@@ -1,0 +1,10 @@
+A5631;Marcos Zarate;25;M;Buenos Aires;
+C1723;Carlos Diaz;30;M;Puerto Madryn;
+B1998;Daniela Medina;20;F;Trelew;
+L2891;Maria Soto;36;F;Cordoba;
+X7153;Mariano Perez;26;M;Puerto Madryn;
+T2123;Diego Correa;18;M;Bahia Blanca;
+J9159;Carolina Ferrari;40;F;Puerto Madryn;
+K2164;Diego Martinez;22;M;Rawson;
+X5965;Pedro Lopez;33;M;Comodoro Rivadavia;
+P7645;Monica Alvarez;55;F;Buenos Aires;

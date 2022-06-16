@@ -1,0 +1,11 @@
+aplicacion: main, interactua con datos,con logica, presentacion para resultados
+
+cada capa es independiente en vez de la aplicacion
+
+capas para que sea mantenible
+
+que sean independientes, no interactuan unas con otras, solo la presentacion
+
+modelo va a estas en todas las capas
+
+definir bien modelo
