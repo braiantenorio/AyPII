@@ -7,7 +7,7 @@ import net.datastructures.Vertex;
 
 public class Test {
     public static void main(String[] args) throws FileNotFoundException {
-        Graph<Usuario, Integer> g = CargarDatos.cargarUsuarios("users.txt");
+        Graph<Usuario, Relacion> g = CargarDatos.cargarUsuarios("users.txt");
         g = CargarDatos.crearRelaciones("relations.txt", g);
 
         for (Vertex<Usuario> user : g.vertices()) {
@@ -17,7 +17,7 @@ public class Test {
 
     }
 
-    public static <E> double gradoMedio(Graph<E, Integer> g) {
+    public static <E> double gradoMedio(Graph<E, Relacion> g) {
         int i = 0;
         for (Vertex<E> ver : g.vertices())
             i += g.outDegree(ver);

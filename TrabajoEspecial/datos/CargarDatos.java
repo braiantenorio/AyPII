@@ -1,6 +1,5 @@
 package datos;
 
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -12,9 +11,9 @@ import net.datastructures.AdjacencyMapGraph;
 
 public class CargarDatos {
 	private static TreeMap<String, Vertex<Usuario>> usuarios;
-	private static Graph<Usuario, Integer> g;
+	private static Graph<Usuario, Relacion> g;
 
-	public static Graph<Usuario, Integer> cargarUsuarios(String fileName) throws FileNotFoundException {
+	public static Graph<Usuario, Relacion> cargarUsuarios(String fileName) throws FileNotFoundException {
 		Scanner read;
 
 		usuarios = new TreeMap<String, Vertex<Usuario>>();
@@ -37,22 +36,25 @@ public class CargarDatos {
 		return g;
 
 	}
-	public static Graph<Usuario, Integer> crearRelaciones(String fileName, Graph<Usuario, Integer> g) throws FileNotFoundException {
+
+	public static Graph<Usuario, Relacion> crearRelaciones(String fileName, Graph<Usuario, Relacion> g)
+			throws FileNotFoundException {
 		Scanner read;
 
 		read = new Scanner(new File(fileName));
 		read.useDelimiter("\\s*;\\s*");
-		String usr1, usr2;
+		String usr1, usr2, tInterDiaria, likes, tSiendoAmigos;
 
 		while (read.hasNext()) {
-            usr1 = read.next();
+			usr1 = read.next();
 			usr2 = read.next();
-			g.insertEdge(usuarios.get(usr1), usuarios.get(usr2),1);
+			tInterDiaria = read.next();
+			likes = read.next();
+			tSiendoAmigos = read.next();
+			g.insertEdge(usuarios.get(usr1), usuarios.get(usr2), new Relacion(tInterDiaria, likes, tSiendoAmigos));
 		}
 		read.close();
 		return g;
 	}
-	
-
 
 }
