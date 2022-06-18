@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-/*no funciona bien */
 public class CargarParametros {
 
 	private static String archivoUsuario;
@@ -21,8 +20,8 @@ public class CargarParametros {
 		prop.load(input);
 		// get the property value
 		archivoUsuario = prop.getProperty("usuario");
-		idiomaApp = prop.getProperty("language");
-		archivoRelaciones = prop.getProperty("relations");
+		archivoRelaciones = prop.getProperty("relaciones");
+		idiomaApp = prop.getProperty("language");	
 	}
 
 	public static String getArchivoUsuario() {
