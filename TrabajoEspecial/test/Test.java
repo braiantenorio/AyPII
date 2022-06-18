@@ -25,9 +25,8 @@ public class Test {
         Calculo<Usuario,Relacion> c= new Calculo<Usuario, Relacion>(g);
 
 
-        c.centralidad().getElement();
         
-        //System.out.println(c.centralidad().getElement().getCodigo());
+        System.out.println(c.centralidad().getElement().getCodigo());
 
 
 
