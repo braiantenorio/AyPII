@@ -1,16 +1,16 @@
-package datos;
+package modelo;
 
 public class Relacion {
 
     String tInterDiaria;
     String likes;
-    String tSiendoAmigos;
+    int tSiendoAmigos;
 
-    public Relacion(String tInterDiaria, String likes, String tSiendoAmigos) {
+    public Relacion(String tInterDiaria, String likes, int tSiendoAmigos2) {
         super();
         this.tInterDiaria= tInterDiaria;
         this.likes= likes;
-        this.tSiendoAmigos= tSiendoAmigos;
+        this.tSiendoAmigos= tSiendoAmigos2;
     }
 
     public String gettInterDiaria() {
@@ -29,11 +29,11 @@ public class Relacion {
         this.likes = likes;
     }
 
-    public String gettSiendoAmigos() {
+    public int gettSiendoAmigos() {
         return tSiendoAmigos;
     }
 
-    public void settSiendoAmigos(String tSiendoAmigos) {
+    public void settSiendoAmigos(int tSiendoAmigos) {
         this.tSiendoAmigos = tSiendoAmigos;
     }
 

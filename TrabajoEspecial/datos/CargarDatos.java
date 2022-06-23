@@ -4,14 +4,18 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+import modelo.Relacion;
+import modelo.Usuario;
 import net.datastructures.Graph;
 import net.datastructures.TreeMap;
 import net.datastructures.Vertex;
 import net.datastructures.AdjacencyMapGraph;
 
 public class CargarDatos {
-	private static TreeMap<String, Vertex<Usuario>> usuarios;
+	public static TreeMap<String, Vertex<Usuario>> usuarios;
 	private static Graph<Usuario, Relacion> g;
+	private static Graph<Usuario, Relacion> dijkstra;
+
 
 	public static Graph<Usuario, Relacion> cargarUsuarios(String fileName) throws FileNotFoundException {
 		Scanner read;
@@ -43,14 +47,14 @@ public class CargarDatos {
 
 		read = new Scanner(new File(fileName));
 		read.useDelimiter("\\s*;\\s*");
-		String usr1, usr2, tInterDiaria, likes, tSiendoAmigos;
-
+		String usr1, usr2, likes,tInterDiaria ;
+		int tSiendoAmigos;
 		while (read.hasNext()) {
 			usr1 = read.next();
 			usr2 = read.next();
 			tInterDiaria = read.next();
 			likes = read.next();
-			tSiendoAmigos = read.next();
+			tSiendoAmigos = read.nextInt();
 			g.insertEdge(usuarios.get(usr1), usuarios.get(usr2), new Relacion(tInterDiaria, likes, tSiendoAmigos));
 		}
 		read.close();
