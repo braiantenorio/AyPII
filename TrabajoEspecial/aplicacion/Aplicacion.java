@@ -7,7 +7,6 @@ import modelo.Relacion;
 import modelo.Usuario;
 import net.datastructures.Graph;
 import net.datastructures.Vertex;
-import presentacion.Pantalla;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
