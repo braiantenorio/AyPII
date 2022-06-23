@@ -4,4 +4,18 @@
 Programa de Análisis de Redes Sociales que se centra en el descubrimiento de patrones de interacción entre actores sociales en redes sociales. Este sistema permite conocer y explorar relaciones entre usuarios y sugiere nuevas entre los mismos basados en sus amistades, gustos y hábitos de usuario.
 
 ### Planteo del problema
-Para desarrollar este sistema necesitamos
+Para desarrollar este sistema se usaran
+
+### Implementacion de la solucion
+
+
+### Manual de funcionamiento
+
+### Errores detectados
+
+
+
+
+### Posibles mejoras y extensiones
+
+### Conclusiones

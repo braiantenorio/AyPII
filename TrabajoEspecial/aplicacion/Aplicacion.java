@@ -12,17 +12,28 @@ import presentacion.Pantalla;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import datos.CargarDatos;
-import datos.CargarParametros;
-
 public class Aplicacion {
 
 	public static void main(String[] args) throws IOException {
 
+		Graph<Usuario, Relacion> datos=null;
+
 		// Cargar datos
+		try{
         CargarParametros.parametros();
-		Graph<Usuario, Relacion> datos = CargarDatos.cargarUsuarios(CargarParametros.getArchivoUsuario());
-        datos = CargarDatos.crearRelaciones(CargarParametros.getArchivoRelaciones(), datos);
+		} catch(IOException e) {
+			System.err.print("Error al cargar par�metros");
+			System.exit(-1);
+		}
+
+		try {
+			datos = CargarDatos.cargarUsuarios(CargarParametros.getArchivoUsuario());
+        	datos = CargarDatos.crearRelaciones(CargarParametros.getArchivoRelaciones(), datos);
+		} catch (FileNotFoundException e) {
+			System.err.print("Error al cargar archivos de datos");
+			System.exit(-1);
+		}
+		
 
 		// Opcion
 		int opcion = Pantalla.opcion();
@@ -30,6 +41,8 @@ public class Aplicacion {
 		// C�lculo
         Calculo<Usuario> c= new Calculo<Usuario>(datos);
 		double resultado = 0;
+
+		System.out.println(datos);
 
 		if (opcion == Constante.SALIR)
 			System.exit(0);

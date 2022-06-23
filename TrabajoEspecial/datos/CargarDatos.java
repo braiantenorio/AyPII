@@ -16,6 +16,13 @@ public class CargarDatos {
 	private static Graph<Usuario, Relacion> g;
 
 
+	
+	/** Carga las usuarios desde un archivo de texto a un grafo y guarda en un mapa los vertices, donde la
+	 * clave es el codigo del usuario;
+	 * @param fileName Nombre del archivo fuente de usuarios
+	 * @return Graph<Usuario, Relacion> grafo no dirigido con  
+	 * @throws FileNotFoundException
+	 */
 	public static Graph<Usuario, Relacion> cargarUsuarios(String fileName) throws FileNotFoundException {
 		Scanner read;
 
@@ -40,6 +47,13 @@ public class CargarDatos {
 
 	}
 
+	
+	/** 
+	 * @param fileName
+	 * @param g
+	 * @return Graph<Usuario, Relacion>
+	 * @throws FileNotFoundException
+	 */
 	public static Graph<Usuario, Relacion> crearRelaciones(String fileName, Graph<Usuario, Relacion> g)
 			throws FileNotFoundException {
 		Scanner read;
