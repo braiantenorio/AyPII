@@ -13,9 +13,6 @@ Para desarrollar este sistema se usaran
 
 ### Errores detectados
 
-
-
-
 ### Posibles mejoras y extensiones
 
 ### Conclusiones

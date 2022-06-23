@@ -6,7 +6,7 @@ import logica.Calculo;
 import modelo.Relacion;
 import modelo.Usuario;
 import net.datastructures.Graph;
-
+import net.datastructures.Vertex;
 import presentacion.Pantalla;
 
 import java.io.FileNotFoundException;
@@ -33,29 +33,22 @@ public class Aplicacion {
 			System.err.print("Error al cargar archivos de datos");
 			System.exit(-1);
 		}
-		
 
-		// Opcion
-		int opcion = Pantalla.opcion();
+		for (Vertex<Usuario> user : datos.vertices()) {
+            System.out.println(user.getElement());
+        }
+	
 
 		// C�lculo
         Calculo<Usuario> c= new Calculo<Usuario>(datos);
-		double resultado = 0;
 
-		System.out.println(datos);
+        System.out.println("La cantidad promedio de amigos por persona es " + c.gradoMedio());
 
-		if (opcion == Constante.SALIR)
-			System.exit(0);
-		
-		if (opcion == Constante.GRADOMEDIO)
-			resultado = c.gradoMedio();
+        System.out.println("La persona mas influyente es " + c.centralidad());
 
-		if (opcion == Constante.CENTRALIDAD)
-			/*resultado =*/ c.centralidad().getCodigo();
-		// Resultado
-		Pantalla.resultado(resultado);
-
-
+		System.out.println("El camino mas corto entre 2 usuarios");
+		for(Vertex<Usuario> l :c.antiguedad(("B1998"),("P7645")))
+            System.out.println(l.getElement());
 	}
 
 }

@@ -30,6 +30,10 @@ public class Calculo<V> {
     }
 
 
+    
+    /** Devuelve el uduario mas influyente de la red social
+     * @return Usuario con mas amigos
+     */
     public Usuario centralidad() {
         Vertex<Usuario> center = null;
         int i = 0;
@@ -46,8 +50,7 @@ public class Calculo<V> {
 
     
     /** 
-     * Devuelve la cantidad de relaciones promedio de cada vertice.
-     * Recorre cada vertice acumulando la cantidad de vertices en una variable tipo double
+     * Devuelve la cantidad de relaciones promedio por vertice.
      * @param g Grafo del cual se quiere calcular el grado medio
      * @return double Promedio de relaciones por vertice
      */
@@ -59,6 +62,13 @@ public class Calculo<V> {
         return i;
     }
 
+    
+    /** Usando el algoritmo de Dijkstra, encuentra el camino mas corto desde un vertice dado a
+     * otro. 
+     * @param src Vertice origen
+     * @param target Vertice objetivo
+     * @return PositionalList<Vertex<Usuario>> Lista con el camino de vertices
+     */
     public PositionalList<Vertex<Usuario>> antiguedad(String src, String target){
 
        return GraphAlgorithms.shortestPathList(dijkstra, mVertex.get(src), mVertex.get(target));
