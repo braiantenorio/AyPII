@@ -37,9 +37,10 @@ public class Relacion {
         this.tSiendoAmigos = tSiendoAmigos;
     }
 
-    
-
-
+    @Override
+    public String toString() {
+        return "Tiempo de interaccion diaria: " + tInterDiaria + " Cantidad de likes:" + likes + " Tiempo siendo amigos: " + tSiendoAmigos;
+    }
 
     
 }

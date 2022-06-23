@@ -1,10 +1,8 @@
 package logica;
 
-
 import net.datastructures.AdjacencyMapGraph;
 import net.datastructures.Edge;
 import net.datastructures.Graph;
-import net.datastructures.Map;
 import net.datastructures.PositionalList;
 import net.datastructures.TreeMap;
 import net.datastructures.Vertex;
@@ -17,7 +15,7 @@ public class Calculo<V> {
 
     private Graph<Usuario, Relacion> datos = new AdjacencyMapGraph<>(false);
     private Graph<Usuario, Integer> dijkstra = new AdjacencyMapGraph<>(false);
-    public TreeMap<String, Vertex<Usuario>> mVertex;
+    private TreeMap<String, Vertex<Usuario>> mVertex;
    
 
     public Calculo(Graph<Usuario, Relacion> g) {
@@ -26,7 +24,8 @@ public class Calculo<V> {
         for(Vertex<Usuario> d: datos.vertices())
             mVertex.put(d.getElement().getCodigo(), dijkstra.insertVertex(d.getElement()) );
         for(Edge<Relacion> e : datos.edges())
-            dijkstra.insertEdge(mVertex.get(datos.endVertices(e)[0].getElement().getCodigo()), mVertex.get(datos.endVertices(e)[1].getElement().getCodigo()), e.getElement().gettSiendoAmigos());
+            dijkstra.insertEdge(mVertex.get(datos.endVertices(e)[0].getElement().getCodigo()), mVertex.get(datos.endVertices(e)[1].getElement().getCodigo()),
+             e.getElement().gettSiendoAmigos());
 
     }
 
@@ -61,7 +60,7 @@ public class Calculo<V> {
     }
 
     public PositionalList<Vertex<Usuario>> antiguedad(String src, String target){
-        
+
        return GraphAlgorithms.shortestPathList(dijkstra, mVertex.get(src), mVertex.get(target));
     }
     

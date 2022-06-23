@@ -14,7 +14,6 @@ import net.datastructures.AdjacencyMapGraph;
 public class CargarDatos {
 	public static TreeMap<String, Vertex<Usuario>> usuarios;
 	private static Graph<Usuario, Relacion> g;
-	private static Graph<Usuario, Relacion> dijkstra;
 
 
 	public static Graph<Usuario, Relacion> cargarUsuarios(String fileName) throws FileNotFoundException {
