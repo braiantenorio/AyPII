@@ -27,8 +27,8 @@ public class Test {
 
         System.out.println("La persona mas influyente es " + c.centralidad());
 
-        for(Vertex<Usuario> l :c.antiguedad(("B1998"),("P7645")))
-            System.out.println(l.getElement());
+        for(Usuario l :c.antiguedad(("B1998"),("P7645")))
+            System.out.println(l);
 
     }
 
