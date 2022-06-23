@@ -7,6 +7,8 @@ import net.datastructures.List;
 
 public class Aplicacion {
 
+	
+
 	public static void main(String[] args) {
 
 		// Cargar datos
@@ -15,7 +17,7 @@ public class Aplicacion {
 		// Opcion
 		int opcion = Pantalla.opcion();
 
-		// Cálculo
+		// Cï¿½lculo
 		Calculo c = new Calculo(datos);
 		double resultado = 0;
 

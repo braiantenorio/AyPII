@@ -10,6 +10,10 @@ public class Calculo {
 		datos = d;
 	}
 
+	
+	/** 
+	 * @return double
+	 */
 	public double sumatoria() {
 		double total = 0;
 		for (double d : datos)
@@ -17,6 +21,10 @@ public class Calculo {
 		return total;
 	}
 
+	
+	/** 
+	 * @return double
+	 */
 	public double promedio() {
 		return sumatoria() / datos.size();
 	}
