@@ -6,7 +6,6 @@ import logica.Calculo;
 import modelo.Relacion;
 import modelo.Usuario;
 import net.datastructures.Graph;
-import net.datastructures.Vertex;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

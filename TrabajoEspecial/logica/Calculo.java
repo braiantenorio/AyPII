@@ -32,7 +32,7 @@ public class Calculo<V> {
     }
 
     /**
-     * Devuelve el uduario mas influyente de la red social
+     * Devuelve el usuario mas influyente de la red social
      * 
      * @return Usuario con mas amigos
      */
@@ -63,7 +63,7 @@ public class Calculo<V> {
         i = i / datos.numVertices();
         return i;
     }
-//devolver lista de usuario no vertices
+
     /**
      * Usando el algoritmo de Dijkstra, encuentra el camino mas corto desde un
      * vertice dado a
