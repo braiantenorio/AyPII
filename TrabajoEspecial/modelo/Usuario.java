@@ -32,6 +32,31 @@ public class Usuario {
 		this.nombre = nombre;
 	}
 		
+	
+	public String getEdad() {
+		return edad;
+	}
+
+	public void setEdad(String edad) {
+		this.edad = edad;
+	}
+
+	public String getGenero() {
+		return genero;
+	}
+
+	public void setGenero(String genero) {
+		this.genero = genero;
+	}
+
+	public String getCiudadAct() {
+		return ciudadAct;
+	}
+
+	public void setCiudadAct(String ciudadAct) {
+		this.ciudadAct = ciudadAct;
+	}
+
 	@Override
 	public String toString() {
 		return "["+ codigo + " " + nombre + " " + edad + " " + genero + " " + ciudadAct + "]";

@@ -1,38 +1,60 @@
-package test;
+/*package test;
 
 import java.io.IOException;
 import datos.CargarDatos;
 import datos.CargarParametros;
+import junit.framework.Test;
 import logica.Calculo;
 import modelo.Relacion;
 import modelo.Usuario;
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import net.datastructures.ArrayList;
+import net.datastructures.List;
 
 import net.datastructures.Graph;
 import net.datastructures.Vertex;
 
 public class Test {
-    public static void main(String[] args) throws IOException {
+    private Calculo c;
+	private List<Double> lista;
 
-        CargarParametros.parametros();
-        Graph<Usuario, Relacion> g = CargarDatos.cargarUsuarios(CargarParametros.getArchivoUsuario());
-        g = CargarDatos.crearRelaciones(CargarParametros.getArchivoRelaciones(), g);
+	@Before
+	public void setUp() throws Exception {
+		lista = new ArrayList<Double>();
+		c = new Calculo(lista);
+	}
 
-        for (Vertex<Usuario> user : g.vertices()) {
-            System.out.println(user.getElement());
-        }
+	@Test
+	public void testSumaListaVacia() {		
+		assertEquals(c.sumatoria(), 0.0, 0.01);
+	}
 
-        Calculo<Usuario> c = new Calculo<Usuario>(g);
+	@Test
+	public void testSumaListaDatos() {
+		lista.add(0, 10.0);
+		lista.add(0, 20.0);
+		lista.add(0, 30.0);
+		assertEquals(c.sumatoria(), 60.0, 0.01);
+	}
+	
+	// Pasa el test?
+	@Test
+	public void testPromedioListaVacia() {		
+		assertEquals(c.promedio(), 0.0, 0.01);
+	}
 
-        System.out.println("La cantidad promedio de amigos por persona es " + c.gradoMedio());
+	@Test
+	public void testPromedioListaDatos() {
+		lista.add(0, 10.0);
+		lista.add(0, 20.0);
+		lista.add(0, 30.0);
+		assertEquals(c.promedio(), 20.0, 0.01);
+	}
+	
 
-        System.out.println("La persona mas influyente es " + c.centralidad());
-
-        for(Usuario l :c.antiguedad(("B1998"),("P7645")))
-            System.out.println(l);
-
-    }
-
-
-    
-
-}
+}*/

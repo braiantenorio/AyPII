@@ -5,49 +5,73 @@ import datos.CargarParametros;
 import logica.Calculo;
 import modelo.Relacion;
 import modelo.Usuario;
-import net.datastructures.Graph;
+import java.util.List;
+
+import net.datastructures.TreeMap;
+import presentacion.Pantalla;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.security.KeyException;
 
 public class Aplicacion {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws Exception {
 
-		Graph<Usuario, Relacion> datos=null;
+		TreeMap<String, Usuario> usuarios = null;
+		List<Relacion> relaciones = null;
 
 		// Cargar datos
-		try{
-        CargarParametros.parametros();
-		} catch(IOException e) {
-			System.err.print("Error al cargar par�metros");
+		try {
+			CargarParametros.parametros();
+		} catch (IOException e) {
+			System.err.print("Error al cargar parámetros");
 			System.exit(-1);
 		}
 
 		try {
-			datos = CargarDatos.cargarUsuarios(CargarParametros.getArchivoUsuario());
-        	datos = CargarDatos.crearRelaciones(CargarParametros.getArchivoRelaciones(), datos);
+			usuarios = CargarDatos.cargarUsuarios(CargarParametros.getArchivoUsuario());
+			relaciones = CargarDatos.crearRelaciones(CargarParametros.getArchivoRelaciones(), usuarios);
 		} catch (FileNotFoundException e) {
 			System.err.print("Error al cargar archivos de datos");
 			System.exit(-1);
 		}
 
-		//for (Vertex<Usuario> user : datos.vertices()) {
-       //     System.out.println(user.getElement());
-        //}
-	
-		// C�lculo
-        Calculo<Usuario> c= new Calculo<Usuario>(datos);
+		int opcion = Pantalla.opcion();
 
-        System.out.println("La cantidad promedio de amigos por persona es " + c.gradoMedio());
+		// Calculo
+		Calculo<Usuario> c = new Calculo<Usuario>(usuarios, relaciones);
+		boolean seguir = true;
+		while (seguir) {
+			switch (opcion) {
+				case (Constante.SALIR):
+					seguir = false;
+					Pantalla.despedida();
+					System.exit(-1);
+					break;
+				case (Constante.MOSTRAR_USUARIOS):
+					Pantalla.mostrarUsuarios(c.mostrarUsuarios());
+					break;
+				case (Constante.GRADOMEDIO):
+					Pantalla.gradoMedio(c.gradoMedio());
+					break;
+				case (Constante.CENTRALIDAD):
+					Pantalla.centralidad(c.centralidad());
+					break;
+				case (Constante.ANTIGUEDAD):
+					String src = Pantalla.ingresarUsuario1();
+					String target = Pantalla.ingresarUsuario2();
+					try {
+						Pantalla.antiguedad(c.antiguedad(usuarios.get(src), usuarios.get(target)));
 
-        System.out.println("La persona mas influyente es " + c.centralidad());
-
-		System.out.println("El camino mas corto entre 2 usuarios");
-
-
-		for(Usuario l :c.antiguedad(("B1998"),("P7645")))
-            System.out.println(l);
+					} catch (KeyException e) {
+						Pantalla.error("Codigo de usuario invalido");
+					}
+					break;
+				default:
+					Pantalla.error("Eligio una opcion incorrecta");
+			}
+			opcion = Pantalla.opcion();
+		}
 	}
-
 }

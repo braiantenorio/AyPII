@@ -6,30 +6,34 @@ import java.util.Scanner;
 
 import modelo.Relacion;
 import modelo.Usuario;
-import net.datastructures.Graph;
+import java.util.List;
+
 import net.datastructures.TreeMap;
-import net.datastructures.Vertex;
-import net.datastructures.AdjacencyMapGraph;
+import java.util.ArrayList;
 
 public class CargarDatos {
-	public static TreeMap<String, Vertex<Usuario>> usuarios;
-	private static Graph<Usuario, Relacion> g;
+	public static TreeMap<String, Usuario> usuarios;
 
-
-	
-	/** Carga las usuarios desde un archivo de texto a un grafo y guarda en un mapa los vertices, donde la
+	/**
+	 * Carga las usuarios desde un archivo de texto a un grafo y guarda en un mapa
+	 * los vertices, donde la
 	 * clave es el codigo del usuario;
+	 * 
 	 * @param fileName Nombre del archivo fuente de usuarios
-	 * @return Graph<Usuario, Relacion> grafo no dirigido con  
+	 * @return Graph<Usuario, Relacion> grafo no dirigido con
 	 * @throws FileNotFoundException
 	 */
-	public static Graph<Usuario, Relacion> cargarUsuarios(String fileName) throws FileNotFoundException {
-		Scanner read;
+	public static TreeMap<String, Usuario> cargarUsuarios(String fileName) throws FileNotFoundException {
+		Scanner read = null;
 
-		usuarios = new TreeMap<String, Vertex<Usuario>>();
-		g = new AdjacencyMapGraph<>(false);
+		usuarios = new TreeMap<String, Usuario>();
+		try {
+			read = new Scanner(new File(fileName));
 
-		read = new Scanner(new File(fileName));
+		} catch (FileNotFoundException e) {
+			System.out.printf("Error archivo no encontrado");
+
+		}
 		read.useDelimiter("\\s*;\\s*");
 		String codigo, nombre, edad, genero, ciudadAct;
 
@@ -40,38 +44,42 @@ public class CargarDatos {
 			genero = read.next();
 			ciudadAct = read.next();
 
-			usuarios.put(codigo, g.insertVertex(new Usuario(codigo, nombre, edad, genero, ciudadAct)));
+			usuarios.put(codigo, new Usuario(codigo, nombre, edad, genero, ciudadAct));
 		}
 		read.close();
-		return g;
+		return usuarios;
 
 	}
 
-	
-	/** 
+	/**
 	 * @param fileName
 	 * @param g
 	 * @return Graph<Usuario, Relacion>
 	 * @throws FileNotFoundException
 	 */
-	public static Graph<Usuario, Relacion> crearRelaciones(String fileName, Graph<Usuario, Relacion> g)
+	public static List<Relacion> crearRelaciones(String fileName, TreeMap<String, Usuario> usuarios)
 			throws FileNotFoundException {
-		Scanner read;
+		Scanner read = null;
+		List<Relacion> relaciones = new ArrayList<Relacion>();
+		try {
+			read = new Scanner(new File(fileName));
 
-		read = new Scanner(new File(fileName));
+		} catch (FileNotFoundException e) {
+			System.out.printf("Error archivo no encontrado");
+		}
 		read.useDelimiter("\\s*;\\s*");
-		String usr1, usr2, likes,tInterDiaria ;
-		int tSiendoAmigos;
+		Usuario usr1, usr2;
+		int tSiendoAmigos, likes, tInterDiaria;
 		while (read.hasNext()) {
-			usr1 = read.next();
-			usr2 = read.next();
-			tInterDiaria = read.next();
-			likes = read.next();
+			usr1 = usuarios.get(read.next());
+			usr2 = usuarios.get(read.next());
+			tInterDiaria = read.nextInt();
+			likes = read.nextInt();
 			tSiendoAmigos = read.nextInt();
-			g.insertEdge(usuarios.get(usr1), usuarios.get(usr2), new Relacion(tInterDiaria, likes, tSiendoAmigos));
+			relaciones.add(0, new Relacion(usr1, usr2, tInterDiaria, likes, tSiendoAmigos));
 		}
 		read.close();
-		return g;
+		return relaciones;
 	}
 
 }
