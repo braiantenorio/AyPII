@@ -27,8 +27,8 @@ public class Calculo<V> {
     Map<Usuario, Vertex<Usuario>> res;
 
     public Calculo(TreeMap<String, Usuario> usuarios, List<Relacion> relaciones) {
+        //crea el grafo
         redSocial = new AdjacencyMapGraph<>(false);
-
         vertices = new TreeMap<String, Vertex<Usuario>>();
         for (Entry<String, Usuario> usuario : usuarios.entrySet())
             vertices.put(usuario.getKey(), redSocial.insertVertex(usuario.getValue()));
@@ -71,7 +71,6 @@ public class Calculo<V> {
         Collections.sort(answer, new Comparator<Usuario>() {
             @Override
             public int compare(Usuario lhs, Usuario rhs) {
-                // -1 - less than, 1 - greater than, 0 - equal, all inversed for descending
                 return outEdges.get(lhs) > outEdges.get(rhs) ? -1 : (outEdges.get(lhs) < outEdges.get(rhs)) ? 1 : 0;
             }
         });
@@ -94,8 +93,7 @@ public class Calculo<V> {
 
     /**
      * Usando el algoritmo de Dijkstra, encuentra el camino mas corto desde un
-     * vertice dado a
-     * otro.
+     * vertice dado a otro.
      * 
      * @param src    Vertice origen
      * @param target Vertice objetivo

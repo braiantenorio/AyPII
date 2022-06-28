@@ -84,8 +84,9 @@ public class Pantalla {
 
 	}
 
-	/**
-	 * @param l
+	/** Imprime la lista de los usuarios mas influyentes de la Red Social
+	 * 
+	 * @param l lista ordenada de los usuarios mas influyentes
 	 */
 	public static void centralidad(List<Usuario> l) {
 		JTextArea outputTextArea = new JTextArea();
@@ -94,7 +95,7 @@ public class Pantalla {
 
 		for (int i = 0; i < REPETECIONES; i++) {
 
-			outputTextArea.append(l.get(i).getCodigo() + "\t" + l.get(i).getNombre() + "\n");
+			outputTextArea.append(l.get(i).getCodigo() + "\t" + l.get(i).getNombre() +"\n");
 
 		}
 
