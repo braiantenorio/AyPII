@@ -15,4 +15,5 @@ public class Pantalla {
 	public static void resultado(double d) {
 		JOptionPane.showMessageDialog(null, "El resultado es: " + d);
 	}
+	
 }
