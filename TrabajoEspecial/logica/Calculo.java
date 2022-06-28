@@ -58,7 +58,8 @@ public class Calculo<V> {
     /**
      * Devuelve los usuarios mas influyentes de la red social
      * 
-     * @return answer lista de ordenada de usuarios de acuerdo a laa cantidad de amigos
+     * @return answer lista de ordenada de usuarios de acuerdo a laa cantidad de
+     *         amigos
      */
     public List<Usuario> centralidad() {
         Map<Usuario, Integer> outEdges = new ProbeHashMap<>();
@@ -118,8 +119,9 @@ public class Calculo<V> {
         return answer;
     }
 
-    
-    /** Muestra todos los usuarios de la red social
+    /**
+     * Muestra todos los usuarios de la red social
+     * 
      * @return List<Usuario> con todos los usuarios
      */
     public List<Usuario> mostrarUsuarios() {

@@ -1,6 +1,5 @@
 package modelo;
 
-
 public class Usuario {
 
 	private String codigo;
@@ -8,31 +7,32 @@ public class Usuario {
 	private String edad;
 	private String genero;
 	private String ciudadAct;
-		
-	
+
 	public Usuario(String codigo, String nombre, String edad, String genero, String ciudadAct) {
 		super();
 		this.codigo = codigo;
 		this.nombre = nombre;
-		this.edad= edad;
-		this.genero=genero;
-		this.ciudadAct=ciudadAct;		
+		this.edad = edad;
+		this.genero = genero;
+		this.ciudadAct = ciudadAct;
 	}
-	
+
 	public String getCodigo() {
 		return codigo;
 	}
+
 	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
+
 	public String getNombre() {
 		return nombre;
 	}
+
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-		
-	
+
 	public String getEdad() {
 		return edad;
 	}
@@ -59,11 +59,7 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "["+ codigo + " " + nombre + " " + edad + " " + genero + " " + ciudadAct + "]";
+		return "[" + codigo + " " + nombre + " " + edad + " " + genero + " " + ciudadAct + "]";
 	}
-	
-	
-	
-	
-	
+
 }

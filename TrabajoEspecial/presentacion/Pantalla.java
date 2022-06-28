@@ -13,7 +13,9 @@ public class Pantalla {
 
 	public static final int REPETECIONES = 5;
 
-	/** Panel principal del sistema, 
+	/**
+	 * Panel principal del sistema,
+	 * 
 	 * @return int opcion elegida por el usuario
 	 * @throws Exception su
 	 */
@@ -25,7 +27,9 @@ public class Pantalla {
 		return Integer.valueOf(s);
 	}
 
-	/** Recibe el primer codigo de usuario de la interfaz
+	/**
+	 * Recibe el primer codigo de usuario de la interfaz
+	 * 
 	 * @return String el primer codigo de usuario
 	 */
 	public static String ingresarUsuario1() {
@@ -34,7 +38,9 @@ public class Pantalla {
 		return s;
 	}
 
-	/** Recibe el primer codigo de usuario de la interfaz
+	/**
+	 * Recibe el primer codigo de usuario de la interfaz
+	 * 
 	 * @return String el primer codigo de usuario
 	 */
 	public static String ingresarUsuario2() {
@@ -48,7 +54,9 @@ public class Pantalla {
 		JOptionPane.showMessageDialog(null, "Gracias por usar el programa");
 	}
 
-	/**Imprime todos los usuarios de la red social
+	/**
+	 * Imprime todos los usuarios de la red social
+	 * 
 	 * @param l lista de usuarios
 	 */
 	public static void mostrarUsuarios(List<Usuario> l) {
@@ -66,7 +74,9 @@ public class Pantalla {
 				"Todos los usuarios", JOptionPane.INFORMATION_MESSAGE);
 	}
 
-	/**	Imprime el grado medio de amigos por usuario
+	/**
+	 * Imprime el grado medio de amigos por usuario
+	 * 
 	 * @param g grado medio
 	 */
 	public static void gradoMedio(double g) {

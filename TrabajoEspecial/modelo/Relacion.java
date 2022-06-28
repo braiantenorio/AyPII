@@ -9,11 +9,11 @@ public class Relacion {
 
     public Relacion(Usuario usr1, Usuario usr2, int tInterDiaria, int likes, int tSiendoAmigos2) {
         super();
-        this.usr1=usr1;
-        this.usr2=usr2;
-        this.tInterDiaria= tInterDiaria;
-        this.likes= likes;
-        this.tSiendoAmigos= tSiendoAmigos2;
+        this.usr1 = usr1;
+        this.usr2 = usr2;
+        this.tInterDiaria = tInterDiaria;
+        this.likes = likes;
+        this.tSiendoAmigos = tSiendoAmigos2;
     }
 
     public int gettInterDiaria() {
@@ -40,7 +40,6 @@ public class Relacion {
         this.tSiendoAmigos = tSiendoAmigos;
     }
 
-    
     public Usuario getUsr1() {
         return usr1;
     }
@@ -59,8 +58,8 @@ public class Relacion {
 
     @Override
     public String toString() {
-        return "Tiempo de interaccion diaria: " + tInterDiaria + " Cantidad de likes:" + likes + " Tiempo siendo amigos: " + tSiendoAmigos;
+        return "Tiempo de interaccion diaria: " + tInterDiaria + " Cantidad de likes:" + likes
+                + " Tiempo siendo amigos: " + tSiendoAmigos;
     }
 
-    
 }
