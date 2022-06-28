@@ -11,7 +11,6 @@ public class CargarParametros {
 	private static String idiomaApp;
 	private static String archivoRelaciones;
 
-
 	public static void parametros() throws IOException {
 
 		Properties prop = new Properties();
@@ -21,7 +20,7 @@ public class CargarParametros {
 		// get the property value
 		archivoUsuario = prop.getProperty("usuario");
 		archivoRelaciones = prop.getProperty("relaciones");
-		idiomaApp = prop.getProperty("language");	
+		idiomaApp = prop.getProperty("language");
 	}
 
 	public static String getArchivoUsuario() {
