@@ -56,9 +56,9 @@ public class Calculo<V> {
     }
 
     /**
-     * Devuelve el usuario mas influyente de la red social
+     * Devuelve los usuarios mas influyentes de la red social
      * 
-     * @return Usuario con mas amigos
+     * @return answer lista de ordenada de usuarios de acuerdo a laa cantidad de amigos
      */
     public List<Usuario> centralidad() {
         Map<Usuario, Integer> outEdges = new ProbeHashMap<>();
@@ -104,7 +104,6 @@ public class Calculo<V> {
 
         PositionalList<Vertex<Usuario>> lista = GraphAlgorithms
                 .shortestPathList(rapido, res.get(src), res.get(target));
-        // List<Usuario> answer = new ArrayList<Usuario>();
         List<Relacion> answer = new ArrayList<Relacion>();
 
         Vertex<Usuario> v1, v2;
@@ -119,6 +118,10 @@ public class Calculo<V> {
         return answer;
     }
 
+    
+    /** Muestra todos los usuarios de la red social
+     * @return List<Usuario> con todos los usuarios
+     */
     public List<Usuario> mostrarUsuarios() {
         List<Usuario> answer = new ArrayList<Usuario>();
         for (Vertex<Usuario> usr : redSocial.vertices())

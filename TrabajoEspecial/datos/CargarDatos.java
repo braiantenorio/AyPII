@@ -10,18 +10,17 @@ import java.util.List;
 
 import net.datastructures.TreeMap;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 
 public class CargarDatos {
 	public static TreeMap<String, Usuario> usuarios;
 
 	/**
-	 * Carga las usuarios desde un archivo de texto a un grafo y guarda en un mapa
-	 * los vertices, donde la
-	 * clave es el codigo del usuario;
+	 * Carga las usuarios desde un archivo de texto
 	 * 
 	 * @param fileName Nombre del archivo fuente de usuarios
-	 * @return Graph<Usuario, Relacion> grafo no dirigido con
-	 * @throws FileNotFoundException
+	 * @return TreeMap<String, Usuario> grafo no dirigido con
+	 * @throws FileNotFoundException si no se encuentra el archivo
 	 */
 	public static TreeMap<String, Usuario> cargarUsuarios(String fileName) throws FileNotFoundException {
 		Scanner read = null;
@@ -36,28 +35,31 @@ public class CargarDatos {
 		}
 		read.useDelimiter("\\s*;\\s*");
 		String codigo, nombre, edad, genero, ciudadAct;
+		try {
+			while (read.hasNext()) {
+				codigo = read.next();
+				nombre = read.next();
+				edad = read.next();
+				genero = read.next();
+				ciudadAct = read.next();
 
-		while (read.hasNext()) {
-			codigo = read.next();
-			nombre = read.next();
-			edad = read.next();
-			genero = read.next();
-			ciudadAct = read.next();
-
-			usuarios.put(codigo, new Usuario(codigo, nombre, edad, genero, ciudadAct));
+				usuarios.put(codigo, new Usuario(codigo, nombre, edad, genero, ciudadAct));
+			}
+		} catch (InputMismatchException e) {
+			System.out.printf("Error archivo %s con formato inv�lido.", fileName);
+		} finally {
+			read.close();
 		}
-		read.close();
 		return usuarios;
 
 	}
 
 	/**
-	 * @param fileName
-	 * @param g
-	 * @return Graph<Usuario, Relacion>
-	 * @throws FileNotFoundException
+	 * @param fileName fileName Nombre del archivo con las relaciones entre usuarios
+	 * @return List<Relacion> Lista con todas las relaciones
+	 * @throws FileNotFoundException si no se encuentra el archivo
 	 */
-	public static List<Relacion> crearRelaciones(String fileName, TreeMap<String, Usuario> usuarios)
+	public static List<Relacion> crearRelaciones(String fileName)
 			throws FileNotFoundException {
 		Scanner read = null;
 		List<Relacion> relaciones = new ArrayList<Relacion>();
@@ -65,20 +67,25 @@ public class CargarDatos {
 			read = new Scanner(new File(fileName));
 
 		} catch (FileNotFoundException e) {
-			System.out.printf("Error archivo no encontrado");
+			System.out.printf("Error archivo %s no encontrado", fileName);
 		}
 		read.useDelimiter("\\s*;\\s*");
 		Usuario usr1, usr2;
 		int tSiendoAmigos, likes, tInterDiaria;
-		while (read.hasNext()) {
-			usr1 = usuarios.get(read.next());
-			usr2 = usuarios.get(read.next());
-			tInterDiaria = read.nextInt();
-			likes = read.nextInt();
-			tSiendoAmigos = read.nextInt();
-			relaciones.add(0, new Relacion(usr1, usr2, tInterDiaria, likes, tSiendoAmigos));
+		try {
+			while (read.hasNext()) {
+				usr1 = usuarios.get(read.next());
+				usr2 = usuarios.get(read.next());
+				tInterDiaria = read.nextInt();
+				likes = read.nextInt();
+				tSiendoAmigos = read.nextInt();
+				relaciones.add(0, new Relacion(usr1, usr2, tInterDiaria, likes, tSiendoAmigos));
+			}
+		} catch (InputMismatchException e) {
+			System.out.printf("Error archivo %s con formato inv�lido.", fileName);
+		} finally {
+			read.close();
 		}
-		read.close();
 		return relaciones;
 	}
 

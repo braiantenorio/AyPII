@@ -12,7 +12,6 @@ import presentacion.Pantalla;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.security.KeyException;
 
 public class Aplicacion {
 
@@ -31,18 +30,17 @@ public class Aplicacion {
 
 		try {
 			usuarios = CargarDatos.cargarUsuarios(CargarParametros.getArchivoUsuario());
-			relaciones = CargarDatos.crearRelaciones(CargarParametros.getArchivoRelaciones(), usuarios);
+			relaciones = CargarDatos.crearRelaciones(CargarParametros.getArchivoRelaciones());
 		} catch (FileNotFoundException e) {
 			System.err.print("Error al cargar archivos de datos");
 			System.exit(-1);
 		}
 
-		int opcion = Pantalla.opcion();
-
 		// Calculo
 		Calculo<Usuario> c = new Calculo<Usuario>(usuarios, relaciones);
 		boolean seguir = true;
 		while (seguir) {
+			int opcion = Pantalla.opcion();
 			switch (opcion) {
 				case (Constante.SALIR):
 					seguir = false;
@@ -63,15 +61,15 @@ public class Aplicacion {
 					String target = Pantalla.ingresarUsuario2();
 					try {
 						Pantalla.antiguedad(c.antiguedad(usuarios.get(src), usuarios.get(target)));
-
-					} catch (KeyException e) {
+					} catch (NullPointerException e) {
 						Pantalla.error("Codigo de usuario invalido");
+					} catch (IllegalArgumentException e) {
+						Pantalla.error("Usuario no tiene amistades");
 					}
 					break;
 				default:
 					Pantalla.error("Eligio una opcion incorrecta");
 			}
-			opcion = Pantalla.opcion();
 		}
 	}
 }
