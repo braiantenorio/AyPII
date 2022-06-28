@@ -35,7 +35,7 @@ public class Aplicacion {
 			System.err.print("Error al cargar archivos de datos");
 			System.exit(-1);
 		}
-
+//parametrizar errores con constantes
 		// Calculo
 		Calculo<Usuario> c = new Calculo<Usuario>(usuarios, relaciones);
 		boolean seguir = true;

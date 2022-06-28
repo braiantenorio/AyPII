@@ -22,7 +22,7 @@ import modelo.Relacion;
 public class Calculo<V> {
 
     private Graph<Usuario, Relacion> redSocial;
-    private Graph<Usuario, Integer> rapido;
+    private Graph<Usuario, Integer> rapido= null;
     private TreeMap<String, Vertex<Usuario>> vertices;
     Map<Usuario, Vertex<Usuario>> res;
 
@@ -58,7 +58,7 @@ public class Calculo<V> {
     /**
      * Devuelve los usuarios mas influyentes de la red social
      * 
-     * @return answer lista de ordenada de usuarios de acuerdo a laa cantidad de
+     * @return answer lista de ordenada de usuarios de acuerdo a la cantidad de
      *         amigos
      */
     public List<Usuario> centralidad() {
@@ -91,6 +91,7 @@ public class Calculo<V> {
         return i;
     }
 
+    //verificar si esta en null, sino no volver a copiar
     /**
      * Usando el algoritmo de Dijkstra, encuentra el camino mas corto desde un
      * vertice dado a otro.

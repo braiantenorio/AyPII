@@ -16,6 +16,22 @@ public class Relacion {
         this.tSiendoAmigos = tSiendoAmigos2;
     }
 
+    public Usuario getUsr1() {
+        return usr1;
+    }
+
+    public void setUsr1(Usuario usr1) {
+        this.usr1 = usr1;
+    }
+
+    public Usuario getUsr2() {
+        return usr2;
+    }
+
+    public void setUsr2(Usuario usr2) {
+        this.usr2 = usr2;
+    }
+
     public int gettInterDiaria() {
         return tInterDiaria;
     }
@@ -38,22 +54,6 @@ public class Relacion {
 
     public void settSiendoAmigos(int tSiendoAmigos) {
         this.tSiendoAmigos = tSiendoAmigos;
-    }
-
-    public Usuario getUsr1() {
-        return usr1;
-    }
-
-    public void setUsr1(Usuario usr1) {
-        this.usr1 = usr1;
-    }
-
-    public Usuario getUsr2() {
-        return usr2;
-    }
-
-    public void setUsr2(Usuario usr2) {
-        this.usr2 = usr2;
     }
 
     @Override
