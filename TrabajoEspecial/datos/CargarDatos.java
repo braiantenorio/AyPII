@@ -15,7 +15,8 @@ public class CargarDatos {
 	public static TreeMap<String, Usuario> usuarios;
 
 	/**
-	 * Carga las usuarios desde un archivo de texto
+	 * Carga las usuarios desde un archivo de texto y las guarda en un mapa donde la clave es la ID 
+	 * y el valor es el usuario
 	 * 
 	 * @param fileName Nombre del archivo fuente de usuarios
 	 * @return TreeMap<String, Usuario> grafo no dirigido con
@@ -54,6 +55,8 @@ public class CargarDatos {
 	}
 
 	/**
+	 * Crea las relaciones desde un archivo y las guarda en una lista
+	 * 
 	 * @param fileName fileName Nombre del archivo con las relaciones entre usuarios
 	 * @return List<Relacion> Lista con todas las relaciones
 	 * @throws FileNotFoundException si no se encuentra el archivo

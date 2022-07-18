@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import modelo.Usuario;
+import modelo.Relacion;
 import net.datastructures.AdjacencyMapGraph;
 import net.datastructures.Edge;
 import net.datastructures.Entry;
@@ -16,8 +18,6 @@ import net.datastructures.Vertex;
 import net.datastructures.GraphAlgorithms;
 import net.datastructures.Map;
 import net.datastructures.Position;
-import modelo.Usuario;
-import modelo.Relacion;
 
 public class Calculo<V> {
 
@@ -43,8 +43,7 @@ public class Calculo<V> {
      * Devuelve los usuarios mas influyentes de la red social
      * 
      * @return answer lista de ordenada de pares de manera descendente de acuerdo a
-     *         la cantidad de
-     *         amigos,
+     *         la cantidad de amigos
      */
     public List<Entry<Usuario, Integer>> centralidad() {
         Map<Usuario, Integer> outEdges = new ProbeHashMap<Usuario, Integer>();

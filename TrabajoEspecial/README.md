@@ -12,12 +12,11 @@ Para desarrollar este sistema se usara una estructura con capas. Haciendo que ca
 
 ### Manual de funcionamiento
 Proceda a correr la aplicacion, cuando vea el cuadro, eliga una opcion:
-Para ver todos los usuarios, escriba 1; para ver el grado medio, escriba 2; para ver los usuarios mas influyentes,escriba 3; para ver el camino mas corto entre 2 usuarios, escriba 4 y proceda a ingresar los codigos de ambos usuarios;
-para salir escriba -1.
+Para ver todos los usuarios, escriba 1; para ver el grado medio, escriba 2; para ver los usuarios mas influyentes,escriba 3; para ver el camino mas corto entre 2 usuarios, escriba 4 y proceda a ingresar los codigos de ambos usuarios para salir escriba -1.
 
 ### Errores detectados
-Error1: Si deja la opcion vacia o preciona cancelar, la aplicacion dejara de funcionar.
-En el archivo de relations1.txt el usuario 101 no tiene amigos. Este error esta contemplado
+La aplicacion dejara de funcionar si se deja la opcion vacia o si se preciona cancelar.
+En el archivo de relations1.txt el usuario 101 no tiene amigos. Este error esta contemplado.
 
 
 ### Posibles mejoras y extensiones
@@ -27,4 +26,5 @@ Utilizar una lista desplegable para seleccionar los usuarios.
 
 
 ### Conclusiones
-El u
+![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)
+
