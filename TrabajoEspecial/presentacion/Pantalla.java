@@ -8,6 +8,7 @@ import javax.swing.JTextArea;
 
 import modelo.Relacion;
 import modelo.Usuario;
+import net.datastructures.Entry;
 
 public class Pantalla {
 
@@ -24,8 +25,8 @@ public class Pantalla {
 		String s = JOptionPane
 				.showInputDialog(
 						"1. Mostrar todos los usuarios\n2. Grado medio\n3. Centralidad\n4. Antiguedad\n-1. Salir");
-		//if(s==null)
-			//Pantalla.error("Opcion invalida= null");
+		// if(s==null)
+		// Pantalla.error("Opcion invalida= null");
 		return Integer.valueOf(s);
 	}
 
@@ -86,19 +87,22 @@ public class Pantalla {
 
 	}
 
-	/** Imprime la lista de los usuarios mas influyentes de la Red Social
+	/**
+	 * Imprime la lista de los usuarios mas influyentes de la Red Social
 	 * 
 	 * @param l lista ordenada de los usuarios mas influyentes
 	 */
-	public static void centralidad(List<Usuario> l) {
+	public static void centralidad(List<Entry<Usuario, Integer>> l) {
 		JTextArea outputTextArea = new JTextArea();
 
-		outputTextArea.setText("Codigo\tNombre\n");
-
-		for (int i = 0; i < REPETECIONES; i++) {
-
-			outputTextArea.append(l.get(i).getCodigo() + "\t" + l.get(i).getNombre() +"\n");
-
+		outputTextArea.setText("Codigo\tNombre\tCantidad de amigos\n");
+		int i = 0;
+		for (Entry<Usuario, Integer> e : l) {
+			if (i == REPETECIONES)
+				break;
+			outputTextArea.append(
+					e.getKey().getCodigo() + "\t" + e.getKey().getNombre() + "\t               " + e.getValue() + "\n");
+			i++;
 		}
 
 		JOptionPane.showMessageDialog(null, outputTextArea,
@@ -106,7 +110,7 @@ public class Pantalla {
 	}
 
 	/**
-	 * @param r
+	 * @param r Lista de relaciones
 	 * @throws KeyException
 	 */
 	public static void antiguedad(List<Relacion> r) throws KeyException {

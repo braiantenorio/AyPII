@@ -24,7 +24,7 @@ public class Aplicacion {
 		try {
 			CargarParametros.parametros();
 		} catch (IOException e) {
-			System.err.print("Error al cargar parámetros");
+			System.err.print(Constante.ERROR_PARAMETROS);
 			System.exit(-1);
 		}
 
@@ -32,10 +32,10 @@ public class Aplicacion {
 			usuarios = CargarDatos.cargarUsuarios(CargarParametros.getArchivoUsuario());
 			relaciones = CargarDatos.crearRelaciones(CargarParametros.getArchivoRelaciones());
 		} catch (FileNotFoundException e) {
-			System.err.print("Error al cargar archivos de datos");
+			System.err.print(Constante.ERROR_ARCHIVO);
 			System.exit(-1);
 		}
-//parametrizar errores con constantes
+
 		// Calculo
 		Calculo<Usuario> c = new Calculo<Usuario>(usuarios, relaciones);
 		boolean seguir = true;
@@ -62,13 +62,13 @@ public class Aplicacion {
 					try {
 						Pantalla.antiguedad(c.antiguedad(usuarios.get(src), usuarios.get(target)));
 					} catch (NullPointerException e) {
-						Pantalla.error("Codigo de usuario invalido");
+						Pantalla.error(Constante.ERROR_CODIGO_INVALIDO);
 					} catch (IllegalArgumentException e) {
-						Pantalla.error("Usuario no tiene amistades");
+						Pantalla.error(Constante.ERROR_USUARIO_SAMISTADES);
 					}
 					break;
 				default:
-					Pantalla.error("Eligio una opcion incorrecta");
+					Pantalla.error(Constante.ERROR_OPCION);
 			}
 		}
 	}

@@ -22,12 +22,12 @@ import modelo.Relacion;
 public class Calculo<V> {
 
     private Graph<Usuario, Relacion> redSocial;
-    private Graph<Usuario, Integer> rapido= null;
+    private Graph<Usuario, Integer> rapido = null;
     private TreeMap<String, Vertex<Usuario>> vertices;
     Map<Usuario, Vertex<Usuario>> res;
 
     public Calculo(TreeMap<String, Usuario> usuarios, List<Relacion> relaciones) {
-        //crea el grafo
+        // crea el grafo
         redSocial = new AdjacencyMapGraph<>(false);
         vertices = new TreeMap<String, Vertex<Usuario>>();
         for (Entry<String, Usuario> usuario : usuarios.entrySet())
@@ -37,22 +37,6 @@ public class Calculo<V> {
             redSocial.insertEdge(vertices.get(relacion.getUsr1().getCodigo()),
                     vertices.get(relacion.getUsr2().getCodigo()), relacion);
 
-        // copiar grafo
-        rapido = new AdjacencyMapGraph<>(false);
-        res = new ProbeHashMap<>();
-
-        for (Vertex<Usuario> result : redSocial.vertices())
-            res.put(result.getElement(),
-                    rapido.insertVertex(result.getElement()));
-
-        Vertex<Usuario>[] vert;
-
-        for (Edge<Relacion> result : redSocial.edges()) {
-            vert = redSocial.endVertices(result);
-            rapido.insertEdge(res.get(vert[0].getElement()), res.get(vert[1]
-                    .getElement()), result.getElement().gettSiendoAmigos());
-
-        }
     }
 
     /**
@@ -61,17 +45,18 @@ public class Calculo<V> {
      * @return answer lista de ordenada de usuarios de acuerdo a la cantidad de
      *         amigos
      */
-    public List<Usuario> centralidad() {
-        Map<Usuario, Integer> outEdges = new ProbeHashMap<>();
-        List<Usuario> answer = new ArrayList<Usuario>();
+    public List<Entry<Usuario, Integer>> centralidad() {
+        Map<Usuario, Integer> outEdges = new ProbeHashMap<Usuario, Integer>();
         for (Vertex<Usuario> usr : redSocial.vertices()) {
             outEdges.put(usr.getElement(), redSocial.outDegree(usr));
-            answer.add(usr.getElement());
         }
-        Collections.sort(answer, new Comparator<Usuario>() {
+        List<Entry<Usuario, Integer>> answer = new ArrayList<Entry<Usuario, Integer>>();
+        for (Entry<Usuario, Integer> s : outEdges.entrySet())
+            answer.add(s);
+        Collections.sort(answer, new Comparator<Entry<Usuario, Integer>>() {
             @Override
-            public int compare(Usuario lhs, Usuario rhs) {
-                return outEdges.get(lhs) > outEdges.get(rhs) ? -1 : (outEdges.get(lhs) < outEdges.get(rhs)) ? 1 : 0;
+            public int compare(Entry<Usuario, Integer> lhs, Entry<Usuario, Integer> rhs) {
+                return lhs.getValue() > rhs.getValue() ? -1 : lhs.getValue() < rhs.getValue() ? 1 : 0;
             }
         });
         return answer;
@@ -91,7 +76,6 @@ public class Calculo<V> {
         return i;
     }
 
-    //verificar si esta en null, sino no volver a copiar
     /**
      * Usando el algoritmo de Dijkstra, encuentra el camino mas corto desde un
      * vertice dado a otro.
@@ -101,6 +85,22 @@ public class Calculo<V> {
      * @return PositionalList<Vertex<Usuario>> Lista con el camino de vertices
      */
     public List<Relacion> antiguedad(Usuario src, Usuario target) {
+        if (rapido == null) {
+            rapido = new AdjacencyMapGraph<>(false);
+            res = new ProbeHashMap<>();
+
+            for (Vertex<Usuario> result : redSocial.vertices())
+                res.put(result.getElement(),
+                        rapido.insertVertex(result.getElement()));
+
+            Vertex<Usuario>[] vert;
+
+            for (Edge<Relacion> result : redSocial.edges()) {
+                vert = redSocial.endVertices(result);
+                rapido.insertEdge(res.get(vert[0].getElement()), res.get(vert[1]
+                        .getElement()), result.getElement().gettSiendoAmigos());
+            }
+        }
 
         PositionalList<Vertex<Usuario>> lista = GraphAlgorithms
                 .shortestPathList(rapido, res.get(src), res.get(target));
