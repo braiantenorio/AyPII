@@ -61,8 +61,5 @@ public class Usuario {
 	public String toString() {
 		return "[" + codigo + " " + nombre + " " + edad + " " + genero + " " + ciudadAct + "]";
 	}
-	
-	
-
 
 }

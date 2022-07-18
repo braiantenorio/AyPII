@@ -11,13 +11,18 @@ public class CargarParametros {
 	private static String idiomaApp;
 	private static String archivoRelaciones;
 
+	/**
+	 * Carga los parametros de un archivo de configuracion
+	 * 
+	 * @throws IOException si no encuentra el archivo o no tiene el formato
+	 *                     especificado
+	 */
 	public static void parametros() throws IOException {
 
 		Properties prop = new Properties();
 		InputStream input = new FileInputStream("config.properties");
-		// load a properties file
 		prop.load(input);
-		// get the property value
+		// obtiene el valor de la propiedad
 		archivoUsuario = prop.getProperty("usuario");
 		archivoRelaciones = prop.getProperty("relaciones");
 		idiomaApp = prop.getProperty("language");

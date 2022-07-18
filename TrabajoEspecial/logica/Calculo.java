@@ -42,15 +42,16 @@ public class Calculo<V> {
     /**
      * Devuelve los usuarios mas influyentes de la red social
      * 
-     * @return answer lista de ordenada de usuarios de acuerdo a la cantidad de
-     *         amigos
+     * @return answer lista de ordenada de pares de manera descendente de acuerdo a
+     *         la cantidad de
+     *         amigos,
      */
     public List<Entry<Usuario, Integer>> centralidad() {
         Map<Usuario, Integer> outEdges = new ProbeHashMap<Usuario, Integer>();
+        List<Entry<Usuario, Integer>> answer = new ArrayList<Entry<Usuario, Integer>>();
         for (Vertex<Usuario> usr : redSocial.vertices()) {
             outEdges.put(usr.getElement(), redSocial.outDegree(usr));
         }
-        List<Entry<Usuario, Integer>> answer = new ArrayList<Entry<Usuario, Integer>>();
         for (Entry<Usuario, Integer> s : outEdges.entrySet())
             answer.add(s);
         Collections.sort(answer, new Comparator<Entry<Usuario, Integer>>() {
@@ -65,7 +66,6 @@ public class Calculo<V> {
     /**
      * Devuelve la cantidad de relaciones promedio por vertice.
      * 
-     * @param g Grafo del cual se quiere calcular el grado medio
      * @return double Promedio de relaciones por vertice
      */
     public double gradoMedio() {
@@ -78,11 +78,11 @@ public class Calculo<V> {
 
     /**
      * Usando el algoritmo de Dijkstra, encuentra el camino mas corto desde un
-     * vertice dado a otro.
+     * vertice dado a otro. Si el graph esta creado para no copiarlo 2 veces
      * 
      * @param src    Vertice origen
      * @param target Vertice objetivo
-     * @return PositionalList<Vertex<Usuario>> Lista con el camino de vertices
+     * @return List<Relacion> Lista con el camino mas corto
      */
     public List<Relacion> antiguedad(Usuario src, Usuario target) {
         if (rapido == null) {

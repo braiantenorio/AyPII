@@ -1,18 +1,17 @@
 package presentacion;
 
-import java.security.KeyException;
 import java.util.List;
 
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
+import aplicacion.Constante;
 import modelo.Relacion;
 import modelo.Usuario;
+
 import net.datastructures.Entry;
 
 public class Pantalla {
-
-	public static final int REPETECIONES = 5;
 
 	/**
 	 * Panel principal del sistema,
@@ -25,8 +24,6 @@ public class Pantalla {
 		String s = JOptionPane
 				.showInputDialog(
 						"1. Mostrar todos los usuarios\n2. Grado medio\n3. Centralidad\n4. Antiguedad\n-1. Salir");
-		// if(s==null)
-		// Pantalla.error("Opcion invalida= null");
 		return Integer.valueOf(s);
 	}
 
@@ -98,7 +95,7 @@ public class Pantalla {
 		outputTextArea.setText("Codigo\tNombre\tCantidad de amigos\n");
 		int i = 0;
 		for (Entry<Usuario, Integer> e : l) {
-			if (i == REPETECIONES)
+			if (i == Constante.REPETECIONES)
 				break;
 			outputTextArea.append(
 					e.getKey().getCodigo() + "\t" + e.getKey().getNombre() + "\t               " + e.getValue() + "\n");
@@ -110,10 +107,11 @@ public class Pantalla {
 	}
 
 	/**
-	 * @param r Lista de relaciones
-	 * @throws KeyException
+	 * Muestra en pantalla el camino mas corto entre 2 usuarios
+	 * 
+	 * @param r Lista de relaciones a mostrar
 	 */
-	public static void antiguedad(List<Relacion> r) throws KeyException {
+	public static void antiguedad(List<Relacion> r) {
 		JTextArea outputTextArea = new JTextArea();
 
 		outputTextArea.setText("Codigo del primer usuario\tTiempo siendo amigos\tCodigo del segundo usuario\n");
@@ -130,10 +128,12 @@ public class Pantalla {
 	}
 
 	/**
-	 * @param e
+	 * Muestra los errores/excepciones en pantalla
+	 * 
+	 * @param e mensaje a mostrar
 	 */
 	public static void error(String e) {
-		JOptionPane.showMessageDialog(null, "Error: " + e, null, JOptionPane.ERROR_MESSAGE);
+		JOptionPane.showMessageDialog(null, "ERROR: " + e, null, JOptionPane.ERROR_MESSAGE);
 
 	}
 }

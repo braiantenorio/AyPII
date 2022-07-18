@@ -16,4 +16,8 @@ public class Constante {
 	public static final String ERROR_PARAMETROS = "Error al cargar parámetros";
 	public static final String ERROR_ARCHIVO = "Error al cargar archivos de datos";
 
+	// Constantes varias
+	public static final int REPETECIONES = 5;
+
+
 }

@@ -5,11 +5,11 @@ import datos.CargarParametros;
 import logica.Calculo;
 import modelo.Relacion;
 import modelo.Usuario;
-import java.util.List;
-
-import net.datastructures.TreeMap;
 import presentacion.Pantalla;
 
+import net.datastructures.TreeMap;
+
+import java.util.List;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -36,7 +36,6 @@ public class Aplicacion {
 			System.exit(-1);
 		}
 
-		// Calculo
 		Calculo<Usuario> c = new Calculo<Usuario>(usuarios, relaciones);
 		boolean seguir = true;
 		while (seguir) {

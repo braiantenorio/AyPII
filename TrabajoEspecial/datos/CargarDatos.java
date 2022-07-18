@@ -3,14 +3,13 @@ package datos;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 import modelo.Relacion;
 import modelo.Usuario;
 import java.util.List;
-
-import net.datastructures.TreeMap;
 import java.util.ArrayList;
-import java.util.InputMismatchException;
+import net.datastructures.TreeMap;
 
 public class CargarDatos {
 	public static TreeMap<String, Usuario> usuarios;
